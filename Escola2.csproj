@@ -51,7 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aluno.cs" />
-    <Compile Include="AlunoRepositorio.cs" />
+    <Compile Include="AlunoRepositorioSql .cs" />
+    <Compile Include="AlunoRepositorioJson.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

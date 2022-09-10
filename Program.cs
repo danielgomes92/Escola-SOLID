@@ -43,15 +43,15 @@ namespace Escola
         private static void listarAlunos()
         {
             Console.Clear();
-
-            if (Aluno.TodosSql().Count == 0)           //JSON -> alterado para SQL
+            var repo = new AlunoRepositorioJson();
+            if (repo.TodosSql().Count == 0)
             {
                 Console.WriteLine("Nenhum aluno cadastrado!");
                 Thread.Sleep(2000);
                 return;
             }
 
-            foreach (var aluno in Aluno.TodosSql())   //JSON -> alterado para SQL
+            foreach (var aluno in repo.TodosSql())
             {
                 Console.WriteLine("--------------------------------------");
                 Console.WriteLine("Nome: " + aluno.Nome);
@@ -87,7 +87,7 @@ namespace Escola
             }
 
             aluno.Notas = listaNotas;
-            Aluno.AdicionarSql(aluno);     //JSON -> alterado para SQL
+            new AlunoRepositorioJson().AdicionarSql(aluno);
 
             Console.Clear();
             Console.WriteLine("Aluno cadastrado com sucesso!");
