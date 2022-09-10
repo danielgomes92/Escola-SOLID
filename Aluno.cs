@@ -27,7 +27,5 @@ namespace Escola
         {
             return string.Join(",", this.Notas);
         }
-
-        public static List<Aluno> alunos = new List<Aluno>();
     }
 }
