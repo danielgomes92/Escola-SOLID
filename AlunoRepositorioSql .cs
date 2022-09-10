@@ -9,24 +9,17 @@ using Newtonsoft.Json;
 
 namespace Escola
 {
-    public class AlunoRepositorioJson
+    public class AlunoRepositorioSql
     {
-        public static List<Aluno> TodosJson()                       //JSON
+        private string stringConexaoSql()
         {
-            if (File.Exists(AlunoRepositorioJson.CaminhoJson()))
-            {
-                var conteudo = File.ReadAllText(AlunoRepositorioJson.CaminhoJson());
-                Aluno.alunos = JsonConvert.DeserializeObject<List<Aluno>>(conteudo);
-            }
-
-            return Aluno.alunos;
+            return System.Configuration.ConfigurationManager.AppSettings["conexao_sql"];
         }
 
-        //SQL
-        public static List<Aluno> TodosSql()                       //SQL
+        public List<Aluno> TodosSql()
         {
-            Aluno.alunos = new List<Aluno>();
-            using (var cnn = new SqlConnection(AlunoRepositorioJson.stringConexaoSql()))
+            var alunos = new List<Aluno>();
+            using (var cnn = new SqlConnection(this.stringConexaoSql()))
             {
                 cnn.Open();
                 using (var cmd = new SqlCommand("select * from alunos", cnn)) // cmd = Command
@@ -40,20 +33,19 @@ namespace Escola
                             aluno.Nome = dr["nome"].ToString();
                             aluno.Matricula = dr["matricula"].ToString();
 
-                            Aluno.alunos.Add(aluno);
-
+                            alunos.Add(aluno);
                         }
                     }
 
                     //Outro reader
-                    foreach (var aluno in Aluno.alunos)
+                    foreach (var aluno in alunos)
                     {
-                        using (var cmdNotas = new SqlCommand("select * from notas where aluno_id=" + aluno.Id, cnn)) // cmd = Command
+                        using (var cmdNotas = new SqlCommand("select * from notas where aluno_id=" + aluno.Id, cnn))
                         {
-                            using (SqlDataReader drNotas = cmdNotas.ExecuteReader()) // dr = Data Reader
+                            using (SqlDataReader drNotas = cmdNotas.ExecuteReader())
                             {
                                 aluno.Notas = new List<double>();
-                                while (drNotas.Read()) // enquanto estiver lendo vai ser transformado na lista de aluno
+                                while (drNotas.Read())
                                 {
                                     aluno.Notas.Add(Convert.ToDouble(drNotas["nota"]));
                                 }
@@ -64,30 +56,12 @@ namespace Escola
                 cnn.Close();
             }
 
-            return Aluno.alunos;
-        }
-        private static string stringConexaoSql()
-        {
-            return System.Configuration.ConfigurationManager.AppSettings["conexao_sql"];
-        }
-        //SQL
-
-        private static string CaminhoJson()
-        {
-            return System.Configuration.ConfigurationManager.AppSettings["caminho_json"];
+            return alunos;
         }
 
-        public static void AdicionarJson(Aluno aluno)       //JSON
+        public void AdicionarSql(Aluno aluno)
         {
-            Aluno.alunos = AlunoRepositorioJson.TodosJson();                        //JSON
-            Aluno.alunos.Add(aluno);
-            string caminho = @"E:\PersistenciadeDados\alunos.json";
-            File.WriteAllText(AlunoRepositorioJson.CaminhoJson(), JsonConvert.SerializeObject(Aluno.alunos));
-        }
-
-        public static void AdicionarSql(Aluno aluno)
-        {
-            using (var cnn = new SqlConnection(AlunoRepositorioJson.stringConexaoSql()))
+            using (var cnn = new SqlConnection(this.stringConexaoSql()))
             {
                 cnn.Open();
                 var cmd = new SqlCommand("insert into alunos(nome, matricula) values (@nome, @matricula);select @@identity", cnn);
