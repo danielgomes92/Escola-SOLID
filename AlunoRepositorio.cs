@@ -13,9 +13,9 @@ namespace Escola
     {
         public static List<Aluno> TodosJson()                       //JSON
         {
-            if (File.Exists(Aluno.CaminhoJson()))
+            if (File.Exists(AlunoRepositorio.CaminhoJson()))
             {
-                var conteudo = File.ReadAllText(Aluno.CaminhoJson());
+                var conteudo = File.ReadAllText(AlunoRepositorio.CaminhoJson());
                 Aluno.alunos = JsonConvert.DeserializeObject<List<Aluno>>(conteudo);
             }
 
@@ -26,7 +26,7 @@ namespace Escola
         public static List<Aluno> TodosSql()                       //SQL
         {
             Aluno.alunos = new List<Aluno>();
-            using (var cnn = new SqlConnection(Aluno.stringConexaoSql()))
+            using (var cnn = new SqlConnection(AlunoRepositorio.stringConexaoSql()))
             {
                 cnn.Open();
                 using (var cmd = new SqlCommand("select * from alunos", cnn)) // cmd = Command
@@ -79,15 +79,15 @@ namespace Escola
 
         public static void AdicionarJson(Aluno aluno)       //JSON
         {
-            Aluno.alunos = Aluno.TodosJson();                        //JSON
+            Aluno.alunos = AlunoRepositorio.TodosJson();                        //JSON
             Aluno.alunos.Add(aluno);
             string caminho = @"E:\PersistenciadeDados\alunos.json";
-            File.WriteAllText(Aluno.CaminhoJson(), JsonConvert.SerializeObject(Aluno.alunos));
+            File.WriteAllText(AlunoRepositorio.CaminhoJson(), JsonConvert.SerializeObject(Aluno.alunos));
         }
 
         public static void AdicionarSql(Aluno aluno)
         {
-            using (var cnn = new SqlConnection(Aluno.stringConexaoSql()))
+            using (var cnn = new SqlConnection(AlunoRepositorio.stringConexaoSql()))
             {
                 cnn.Open();
                 var cmd = new SqlCommand("insert into alunos(nome, matricula) values (@nome, @matricula);select @@identity", cnn);

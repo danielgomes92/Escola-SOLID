@@ -28,6 +28,6 @@ namespace Escola
             return string.Join(",", this.Notas);
         }
 
-        private static List<Aluno> alunos = new List<Aluno>();
+        public static List<Aluno> alunos = new List<Aluno>();
     }
 }
