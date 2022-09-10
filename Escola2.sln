@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32811.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EscolaSQL", "EscolaSQL", "{6889F40A-ABBB-4081-93FD-F93804F7E7D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Escola2", "Escola2.csproj", "{C1B8F9FB-F9F4-496F-9438-93FF6A46A750}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1B8F9FB-F9F4-496F-9438-93FF6A46A750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1B8F9FB-F9F4-496F-9438-93FF6A46A750}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1B8F9FB-F9F4-496F-9438-93FF6A46A750}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1B8F9FB-F9F4-496F-9438-93FF6A46A750}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C1B8F9FB-F9F4-496F-9438-93FF6A46A750} = {6889F40A-ABBB-4081-93FD-F93804F7E7D8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C487BC0-F671-41BD-8D15-94D14FF26584}
+	EndGlobalSection
+EndGlobal
