@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Escola.Entidades;
+using Newtonsoft.Json;
+using System;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Escola.Entidades;
-using Escola.Interfaces;
-using Newtonsoft.Json;
 using System.Threading.Tasks;
+using Escola.Interfaces;
+using System.Collections.Generic;
 
 namespace Escola.Repositorios
 {
@@ -31,7 +31,6 @@ namespace Escola.Repositorios
                 var conteudo = File.ReadAllText(this.CaminhoJson());
                 alunos = JsonConvert.DeserializeObject<List<Aluno>>(conteudo);
             }
-
             return alunos;
         }
 

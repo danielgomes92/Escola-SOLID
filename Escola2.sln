@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EscolaSQL", "EscolaSQL", "{6889F40A-ABBB-4081-93FD-F93804F7E7D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Escola2", "Escola2.csproj", "{C1B8F9FB-F9F4-496F-9438-93FF6A46A750}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Escola", "Escola.csproj", "{C1B8F9FB-F9F4-496F-9438-93FF6A46A750}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

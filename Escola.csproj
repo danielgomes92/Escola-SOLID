@@ -52,11 +52,11 @@
   <ItemGroup>
     <Compile Include="Entidades\Aluno.cs" />
     <Compile Include="Interfaces\IRepositorio.cs" />
-    <Compile Include="Repositorios\AlunoRepositorio .cs" />
-    <Compile Include="Repositorios\AlunoRepositorioSql .cs" />
+    <Compile Include="Repositorios\AlunoRepositorio.cs" />
     <Compile Include="Repositorios\AlunoRepositorioJson.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\AlunoRepositorioSql.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

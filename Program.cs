@@ -1,15 +1,15 @@
-﻿using Escola.Entidades;
-using Escola.Repositorios;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using Escola.Entidades;
+using Escola.Repositorios;
 
 namespace Escola
 {
     class Program
     {
-        private static AlunoRepositorio repo = new AlunoRepositorio(new AlunoRepositorioSql()); // modificar para onde quiser salvar.
+        private static AlunoRepositorio repo = new AlunoRepositorio(new AlunoRepositorioJson()); // modificar para onde quiser salvar.
 
         static void Main(string[] args)
         {
