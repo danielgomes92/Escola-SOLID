@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Escola
+namespace Escola.Repositorios
 {
     public class AlunoRepositorioSql
     {
@@ -59,7 +59,7 @@ namespace Escola
             return alunos;
         }
 
-        public void AdicionarSql(Aluno aluno)
+        public void Salvar(Aluno aluno)
         {
             using (var cnn = new SqlConnection(this.stringConexaoSql()))
             {
@@ -78,6 +78,19 @@ namespace Escola
                 }
                 cnn.Close();
             }
+        }
+
+        public int Quantidade()
+        {
+            int qtd = 0;
+            using (var cnn = new SqlConnection(this.stringConexaoSql()))
+            {
+                cnn.Open();
+                var cmd = new SqlCommand("select count(1) from alunos", cnn);
+                qtd = Convert.ToInt32(cmd.ExecuteScalar());
+                cnn.Close();
+            }
+            return qtd;
         }
     }
 }

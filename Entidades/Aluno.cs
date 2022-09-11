@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Escola.Enum;
+using System.Collections.Generic;
 
 namespace Escola
 {
@@ -8,6 +9,8 @@ namespace Escola
         public string Nome { get; set; }
         public string Matricula { get; set; }
         public List<double> Notas { get; set; }
+
+        public OndeSalvar OndeSalvar { get; set; }
 
         public double Media()
         {

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Escola
+namespace Escola.Repositorios
 {
     public class AlunoRepositorioJson
     {

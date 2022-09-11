@@ -50,9 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aluno.cs" />
-    <Compile Include="AlunoRepositorioSql .cs" />
-    <Compile Include="AlunoRepositorioJson.cs" />
+    <Compile Include="Entidades\Aluno.cs" />
+    <Compile Include="Repositorios\AlunoRepositorio .cs" />
+    <Compile Include="Repositorios\AlunoRepositorioSql .cs" />
+    <Compile Include="Repositorios\AlunoRepositorioJson.cs" />
+    <Compile Include="Enum\OndeSalvar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -60,5 +62,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

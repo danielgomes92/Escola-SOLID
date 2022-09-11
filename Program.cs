@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Escola.Repositorios;
 
 namespace Escola
 {
@@ -44,7 +45,7 @@ namespace Escola
         {
             Console.Clear();
             var repo = new AlunoRepositorioSql(); // alterar de acordo com o uso JSON ou SQL
-            if (repo.TodosSql().Count == 0)
+            if (repo.Quantidade().Count == 0)
             {
                 Console.WriteLine("Nenhum aluno cadastrado!");
                 Thread.Sleep(2000);
