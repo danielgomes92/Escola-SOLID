@@ -20,7 +20,7 @@ namespace Escola.Repositorios
 
         public int Quantidade()
         {
-            return this.Todos().Count;
+            return this.Todos().Count();
         }
 
         public List<Aluno> Todos()
@@ -28,7 +28,7 @@ namespace Escola.Repositorios
             var alunos = new List<Aluno>();
             if (File.Exists(this.CaminhoJson()))
             {
-                var conteudo = File.ReadAllText(this.CaminhoJson());
+                var conteudo = File.ReadAllText(CaminhoJson());
                 alunos = JsonConvert.DeserializeObject<List<Aluno>>(conteudo);
             }
             return alunos;
