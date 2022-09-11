@@ -10,8 +10,6 @@ namespace Escola.Entidades
         public string Matricula { get; set; }
         public List<double> Notas { get; set; }
 
-        public OndeSalvar OndeSalvar { get; set; }
-
         public double Media()
         {
             double somaNotas = 0;
