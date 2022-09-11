@@ -1,7 +1,7 @@
 ﻿using Escola.Enum;
 using System.Collections.Generic;
 
-namespace Escola
+namespace Escola.Entidades
 {
     public class Aluno
     {

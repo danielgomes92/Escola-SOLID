@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidades\Aluno.cs" />
+    <Compile Include="Interfaces\IRepositorio.cs" />
     <Compile Include="Repositorios\AlunoRepositorio .cs" />
     <Compile Include="Repositorios\AlunoRepositorioSql .cs" />
     <Compile Include="Repositorios\AlunoRepositorioJson.cs" />

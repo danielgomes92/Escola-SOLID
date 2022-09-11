@@ -5,18 +5,20 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Escola.Entidades;
+using Escola.Interfaces;
 using Newtonsoft.Json;
 
 namespace Escola.Repositorios
 {
-    public class AlunoRepositorioSql
+    public class AlunoRepositorioSql : IRepositorio
     {
         private string stringConexaoSql()
         {
             return System.Configuration.ConfigurationManager.AppSettings["conexao_sql"];
         }
 
-        public List<Aluno> TodosSql()
+        public List<Aluno> Todos()
         {
             var alunos = new List<Aluno>();
             using (var cnn = new SqlConnection(this.stringConexaoSql()))
