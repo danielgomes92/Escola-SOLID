@@ -4,10 +4,10 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Escola.Entidades;
 using Escola.Interfaces;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace Escola.Repositorios
 {
