@@ -1,15 +1,18 @@
-﻿using System;
+﻿using Escola.Entidades;
+using Escola.Repositorios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
+using System.Text;
 using System.Threading.Tasks;
-using Escola.Repositorios;
 
 namespace Escola
 {
     class Program
     {
+        private static AlunoRepositorio repo = new AlunoRepositorio(new AlunoRepositorioJson()); // modificar para onde quiser salvar.
+
         static void Main(string[] args)
         {
             while (true)
@@ -44,8 +47,7 @@ namespace Escola
         private static void listarAlunos()
         {
             Console.Clear();
-            var repo = new AlunoRepositorioSql();
-            if (repo.Quantidade().Count == 0)
+            if (repo.Quantidade() == 0)
             {
                 Console.WriteLine("Nenhum aluno cadastrado!");
                 Thread.Sleep(2000);
@@ -88,9 +90,8 @@ namespace Escola
             }
 
             aluno.Notas = listaNotas;
-            aluno.OndeSalvar = Enum.OndeSalvar.Sql; // marcando o objeto para salvar no SQL
 
-            new AlunoRepositorio().Salvar(aluno);
+            repo.Salvar(aluno); // injetando a dependencia da implementação
 
             Console.Clear();
             Console.WriteLine("Aluno cadastrado com sucesso!");

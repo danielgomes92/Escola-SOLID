@@ -1,5 +1,4 @@
-﻿using Escola.Enum;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Escola.Entidades
 {

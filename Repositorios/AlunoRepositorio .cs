@@ -24,9 +24,14 @@ namespace Escola.Repositorios
             return repo.Quantidade();
         }
 
+        public List<Aluno> Todos()
+        {
+            return repo.Todos();
+        }
+
         public void Salvar(Aluno aluno)
         {
             repo.Salvar(aluno);
-        } 
+        }
     }
 }
