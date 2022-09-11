@@ -1,11 +1,7 @@
 ﻿using Escola.Entidades;
 using Newtonsoft.Json;
-using System;
-using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Escola.Interfaces;
 using System.Collections.Generic;
 
@@ -26,7 +22,7 @@ namespace Escola.Repositorios
         public List<Aluno> Todos()
         {
             var alunos = new List<Aluno>();
-            if (File.Exists(this.CaminhoJson()))
+            if (File.Exists(CaminhoJson()))
             {
                 var conteudo = File.ReadAllText(CaminhoJson());
                 alunos = JsonConvert.DeserializeObject<List<Aluno>>(conteudo);
@@ -38,7 +34,7 @@ namespace Escola.Repositorios
         {
             var alunos = this.Todos();
             alunos.Add(aluno);
-            File.WriteAllText(this.CaminhoJson(), JsonConvert.SerializeObject(alunos));
+            File.WriteAllText(CaminhoJson(), JsonConvert.SerializeObject(alunos));
         }
     }
 }
